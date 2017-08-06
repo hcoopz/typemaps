@@ -15,8 +15,7 @@ object Syntax {
     @inline def update[K](implicit lookup: Lookup[M, K]): Update.UpdateFn[M, K, K, lookup.Out] = new Update.UpdateFn(m)
     @inline def updateWithKey[KA, KB](implicit lookup: Lookup[M, KA]): Update.UpdateFn[M, KA, KB, lookup.Out] = new Update.UpdateFn(m)
 
-    @inline def updateSet[A](a: A)(implicit update: Update[M, A, A, A, A]): update.Out = update(m, _ => a)
-    @inline def updateSetWithKey[A]: Update.UpdateSetFn[M, A] = new Update.UpdateSetFn(m)
+    @inline def updateSet[A]: Update.UpdateSetFn[M, A] = new Update.UpdateSetFn(m)
 
     @inline def upsert[K](implicit lookup: Lookup[M, K]): Upsert.UpsertFn[M, K, K, lookup.Out] = new Upsert.UpsertFn(m)
     @inline def upsertWithKey[KA, KB](implicit lookup: Lookup[M, KA]): Upsert.UpsertFn[M, KA, KB, lookup.Out] = new Upsert.UpsertFn(m)
