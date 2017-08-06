@@ -16,24 +16,22 @@ object Maps {
     .insert[Double](7)
 
   val scalaMap = Map(
-    'unit -> 1,
-    'boolean -> 2,
-    'short -> 3,
-    'int -> 4,
-    'long -> 5,
-    'float -> 6,
-    'double -> 7
+    MapTags.unit -> 1,
+    MapTags.boolean -> 2,
+    MapTags.short -> 3,
+    MapTags.int -> 4,
+    MapTags.long -> 5,
+    MapTags.float -> 6,
+    MapTags.double -> 7
   )
 
-  import HMapTags._
-
-  val shapelessHMap = new HMapBuilder[Rel].apply(
-    tags.unit -> 1,
-    tags.boolean -> 2,
-    tags.short -> 3,
-    tags.int -> 4,
-    tags.long -> 5,
-    tags.float -> 6,
-    tags.double -> 7
+  val shapelessHMap = new HMapBuilder[HMapRel].apply(
+    HMapTags.unit -> 1,
+    HMapTags.boolean -> 2,
+    HMapTags.short -> 3,
+    HMapTags.int -> 4,
+    HMapTags.long -> 5,
+    HMapTags.float -> 6,
+    HMapTags.double -> 7
   )
 }

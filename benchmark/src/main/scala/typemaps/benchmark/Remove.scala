@@ -3,7 +3,6 @@ package typemaps.benchmark
 import org.openjdk.jmh.annotations.Benchmark
 import typemaps._
 import Syntax._
-import shapeless._
 
 class Remove {
   import Maps._
@@ -19,29 +18,28 @@ class Remove {
     typeMap.remove[Double]
   }
 
+
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def removeScalaMap(): Unit = {
-    scalaMap - 'unit
-    scalaMap - 'boolean
-    scalaMap - 'short
-    scalaMap - 'int
-    scalaMap - 'long
-    scalaMap - 'float
-    scalaMap - 'double
+    scalaMap - MapTags.unit
+    scalaMap - MapTags.boolean
+    scalaMap - MapTags.short
+    scalaMap - MapTags.int
+    scalaMap - MapTags.long
+    scalaMap - MapTags.float
+    scalaMap - MapTags.double
   }
-
-  import HMapTags._
 
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def removeShapelessHMap(): Unit = {
-    shapelessHMap - tags.unit
-    shapelessHMap - tags.boolean
-    shapelessHMap - tags.short
-    shapelessHMap - tags.int
-    shapelessHMap - tags.long
-    shapelessHMap - tags.float
-    shapelessHMap - tags.double
+    shapelessHMap - HMapTags.unit
+    shapelessHMap - HMapTags.boolean
+    shapelessHMap - HMapTags.short
+    shapelessHMap - HMapTags.int
+    shapelessHMap - HMapTags.long
+    shapelessHMap - HMapTags.float
+    shapelessHMap - HMapTags.double
   }
 }

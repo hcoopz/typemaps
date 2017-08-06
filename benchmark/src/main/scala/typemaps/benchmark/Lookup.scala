@@ -3,7 +3,6 @@ package typemaps.benchmark
 import org.openjdk.jmh.annotations.Benchmark
 import typemaps._
 import Syntax._
-import shapeless._
 
 class Lookup {
   import Maps._
@@ -19,29 +18,28 @@ class Lookup {
     typeMap.lookup[Double]
   }
 
+
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def lookupScalaMap(): Unit = {
-    scalaMap('unit)
-    scalaMap('boolean)
-    scalaMap('short)
-    scalaMap('int)
-    scalaMap('long)
-    scalaMap('float)
-    scalaMap('double)
+    scalaMap(MapTags.unit)
+    scalaMap(MapTags.boolean)
+    scalaMap(MapTags.short)
+    scalaMap(MapTags.int)
+    scalaMap(MapTags.long)
+    scalaMap(MapTags.float)
+    scalaMap(MapTags.double)
   }
-
-  import HMapTags._
 
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def lookupShapelessHMap(): Unit = {
-    shapelessHMap.get(tags.unit).get
-    shapelessHMap.get(tags.boolean).get
-    shapelessHMap.get(tags.short).get
-    shapelessHMap.get(tags.int).get
-    shapelessHMap.get(tags.long).get
-    shapelessHMap.get(tags.float).get
-    shapelessHMap.get(tags.double).get
+    shapelessHMap.get(HMapTags.unit).get
+    shapelessHMap.get(HMapTags.boolean).get
+    shapelessHMap.get(HMapTags.short).get
+    shapelessHMap.get(HMapTags.int).get
+    shapelessHMap.get(HMapTags.long).get
+    shapelessHMap.get(HMapTags.float).get
+    shapelessHMap.get(HMapTags.double).get
   }
 }

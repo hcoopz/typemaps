@@ -21,42 +21,40 @@ class Insert {
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def insertScalaMap(): Unit = {
-    Map.empty[Symbol, Int]
-      .updated('unit, 1)
-      .updated('boolean, 2)
-      .updated('short, 3)
-      .updated('int, 4)
-      .updated('long, 5)
-      .updated('float, 6)
-      .updated('double, 7)
+    Map.empty
+      .updated(MapTags.unit, 1)
+      .updated(MapTags.boolean, 2)
+      .updated(MapTags.short, 3)
+      .updated(MapTags.int, 4)
+      .updated(MapTags.long, 5)
+      .updated(MapTags.float, 6)
+      .updated(MapTags.double, 7)
   }
-
-  import HMapTags._
 
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def insertShapelessHMap(): Unit = {
-    HMap.empty[Rel]
-      .+(tags.unit -> 1)
-      .+(tags.boolean -> 2)
-      .+(tags.short -> 3)
-      .+(tags.int -> 4)
-      .+(tags.long -> 5)
-      .+(tags.float -> 6)
-      .+(tags.double -> 7)
+    HMap.empty[HMapRel]
+      .+(HMapTags.unit -> 1)
+      .+(HMapTags.boolean -> 2)
+      .+(HMapTags.short -> 3)
+      .+(HMapTags.int -> 4)
+      .+(HMapTags.long -> 5)
+      .+(HMapTags.float -> 6)
+      .+(HMapTags.double -> 7)
   }
 
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def insertShapelessHMapBuilder(): Unit = {
-    new HMapBuilder[Rel].apply(
-      tags.unit -> 1,
-      tags.boolean -> 2,
-      tags.short -> 3,
-      tags.int -> 4,
-      tags.long -> 5,
-      tags.float -> 6,
-      tags.double -> 7
+    new HMapBuilder[HMapRel].apply(
+      HMapTags.unit -> 1,
+      HMapTags.boolean -> 2,
+      HMapTags.short -> 3,
+      HMapTags.int -> 4,
+      HMapTags.long -> 5,
+      HMapTags.float -> 6,
+      HMapTags.double -> 7
     )
   }
 }
