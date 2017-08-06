@@ -10,9 +10,9 @@ private[this] object CannotUpdateKey {
 
   @implicitAmbiguous("Can update the key in the map")
   implicit def fail1[M <: TypeMap, KA, KB, A](implicit lookup: Lookup.Aux[M, KA, A],
-                                              update: Update[M, KA, A, KB, Unit]): CannotUpdateKey[M, KA, KB] = new CannotUpdateKey[M, KA, KB] {}
+                                              update: UpdateWithKey[M, KA, A, KB, Unit]): CannotUpdateKey[M, KA, KB] = new CannotUpdateKey[M, KA, KB] {}
   implicit def fail2[M <: TypeMap, KA, KB, A](implicit lookup: Lookup.Aux[M, KA, A],
-                                              update: Update[M, KA, A, KB, Unit]): CannotUpdateKey[M, KA, KB] = new CannotUpdateKey[M, KA, KB] {}
+                                              update: UpdateWithKey[M, KA, A, KB, Unit]): CannotUpdateKey[M, KA, KB] = new CannotUpdateKey[M, KA, KB] {}
 
   class Fn[KA, KB] {
     def apply[M <: TypeMap](m: M)(implicit ev: CannotUpdateKey[M, KA, KB]): Unit = {}

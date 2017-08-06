@@ -12,15 +12,17 @@ object Syntax {
 
     @inline def prettyPrint(implicit prettyPrint: PrettyPrint[M]): String = prettyPrint(m)
 
-    @inline def update[K](implicit lookup: Lookup[M, K]): Update.UpdateFn[M, K, K, lookup.Out] = new Update.UpdateFn(m)
-    @inline def updateWithKey[KA, KB](implicit lookup: Lookup[M, KA]): Update.UpdateFn[M, KA, KB, lookup.Out] = new Update.UpdateFn(m)
+    @inline def update[K](implicit lookup: Lookup[M, K]): Update.UpdateFn[M, K, lookup.Out] = new Update.UpdateFn(m)
+    @inline def updateWithKey[KA, KB](implicit lookup: Lookup[M, KA]): UpdateWithKey.UpdateWithKeyFn[M, KA, KB, lookup.Out] = new UpdateWithKey.UpdateWithKeyFn(m)
 
     @inline def updateSet[A]: Update.UpdateSetFn[M, A] = new Update.UpdateSetFn(m)
+    @inline def updateSetWithKey[A]: UpdateWithKey.UpdateWithKeySetFn[M, A] = new UpdateWithKey.UpdateWithKeySetFn(m)
 
-    @inline def upsert[K](implicit lookup: Lookup[M, K]): Upsert.UpsertFn[M, K, K, lookup.Out] = new Upsert.UpsertFn(m)
-    @inline def upsertWithKey[KA, KB](implicit lookup: Lookup[M, KA]): Upsert.UpsertFn[M, KA, KB, lookup.Out] = new Upsert.UpsertFn(m)
+    @inline def upsert[K](implicit lookup: Lookup[M, K]): Upsert.UpsertFn[M, K, lookup.Out] = new Upsert.UpsertFn(m)
+    @inline def upsertWithKey[KA, KB](implicit lookup: Lookup[M, KA]): UpsertWithKey.UpsertWithKeyFn[M, KA, KB, lookup.Out] = new UpsertWithKey.UpsertWithKeyFn(m)
 
     @inline def upsertSet[A]: Upsert.UpsertSetFn[M, A] = new Upsert.UpsertSetFn(m)
+    @inline def upsertSetWithKey[A]: UpsertWithKey.UpsertWithKeySetFn[M, A] = new UpsertWithKey.UpsertWithKeySetFn(m)
 
     @inline def remove[K](implicit remove: Remove[M, K]): remove.Out = remove(m)
   }

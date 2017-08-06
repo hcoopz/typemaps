@@ -22,7 +22,7 @@ object UpdateValues {
   }
 
   implicit def hcons[M <: TypeMap, H, T <: HList, A, OH <: TypeMap, OT <: HList](implicit lookup: Lookup.Aux[M, H, A],
-                                                                                 head: Update.Aux[M, H, A, H, Unit, OH],
+                                                                                 head: Update.Aux[M, H, A, Unit, OH],
                                                                                  tail: UpdateValues.Aux[M, T, OT]
                                                                                 ): UpdateValues.Aux[M, H :: T, OH :: OT] =
     new UpdateValues[M, H :: T] {
