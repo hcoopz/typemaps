@@ -12,4 +12,9 @@ object HMapRel {
   implicit val long = mkRel(HMapTags.long)
   implicit val float = mkRel(HMapTags.float)
   implicit val double = mkRel(HMapTags.double)
+  implicit val bigDecimal = mkRel(HMapTags.bigDecimal)
+  implicit val bigInt = mkRel(HMapTags.bigInt)
+  implicit val char = mkRel(HMapTags.char)
+  implicit val symbol = mkRel(HMapTags.symbol)
+  implicit val string = mkRel(HMapTags.string)
 }

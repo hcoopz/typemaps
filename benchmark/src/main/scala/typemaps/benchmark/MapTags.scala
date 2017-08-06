@@ -8,4 +8,9 @@ object MapTags {
   val long = 'long
   val float = 'float
   val double = 'double
+  val bigDecimal = 'bigDecimal
+  val bigInt = 'bigInt
+  val char = 'char
+  val symbol = 'symbol
+  val string = 'string
 }
