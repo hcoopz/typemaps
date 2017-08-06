@@ -13,4 +13,5 @@ object MapTags {
   val char = 'char
   val symbol = 'symbol
   val string = 'string
+  val optionUnit = 'optionUnit
 }

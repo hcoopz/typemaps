@@ -17,4 +17,5 @@ object HMapRel {
   implicit val char = mkRel(HMapTags.char)
   implicit val symbol = mkRel(HMapTags.symbol)
   implicit val string = mkRel(HMapTags.string)
+  implicit val optionUnit = mkRel(HMapTags.optionUnit)
 }

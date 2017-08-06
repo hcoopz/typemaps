@@ -15,4 +15,5 @@ object HMapTags {
   val char = 'char.narrow
   val symbol = 'symbol.narrow
   val string = 'string.narrow
+  val optionUnit = 'optionUnit.narrow
 }
