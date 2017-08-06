@@ -43,7 +43,7 @@ object Remove {
   // To delete from the LHS, steal an element from the RHS, replace with it in the LHS, and then swap the resulting branches
   implicit def binL[KA, A, L <: TypeMap, RK, RA, RL <: TypeMap, RR <: TypeMap, K, LA, OL <: TypeMap, OR <: TypeMap](implicit remove: Remove.Aux[Bin[RK, RA, RL, RR], RK, OR],
                                                                                                                     lookup: Lookup.Aux[L, K, LA],
-                                                                                                                    replace: UpdateWithKey.Aux[L, K, LA, KA, A, OL]
+                                                                                                                    replace: UpdateWithKeyUnsafe.Aux[L, K, LA, KA, A, OL]
                                                                                                                    ): Remove.Aux[Bin[KA, A, L, Bin[RK, RA, RL, RR]], K, Bin[RK, RA, OR, OL]] =
     new Remove[Bin[KA, A, L, Bin[RK, RA, RL, RR]], K] {
       override type Out = Bin[RK, RA, OR, OL]
