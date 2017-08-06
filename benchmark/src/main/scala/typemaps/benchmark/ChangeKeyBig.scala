@@ -3,6 +3,8 @@ package typemaps.benchmark
 import org.openjdk.jmh.annotations.Benchmark
 import typemaps._
 import Syntax._
+import shapeless.syntax.singleton._
+import shapeless.record._
 
 class ChangeKeyBig {
   import Maps._
@@ -55,5 +57,22 @@ class ChangeKeyBig {
     shapelessHMapBig - SingletonTags.char + (SingletonTags.optionUnit -> 10)
     shapelessHMapBig - SingletonTags.symbol + (SingletonTags.optionUnit -> 10)
     shapelessHMapBig - SingletonTags.string + (SingletonTags.optionUnit -> 10)
+  }
+
+  // Not exactly the same because we have to provide values for keys
+  @Benchmark
+  def updateShapelessRecord(): Unit = {
+    shapelessRecordBig - Tags.unit + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.boolean + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.short + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.int + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.long + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.float + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.double + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.bigDecimal + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.bigInt + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.char + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.symbol + (Tags.optionUnit ->> 10)
+    shapelessRecordBig - Tags.string + (Tags.optionUnit ->> 10)
   }
 }
