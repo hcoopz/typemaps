@@ -3,6 +3,7 @@ package typemaps.benchmark
 import org.openjdk.jmh.annotations.Benchmark
 import typemaps._
 import Syntax._
+import shapeless.record._
 
 class Lookup {
   import Maps._
@@ -22,24 +23,36 @@ class Lookup {
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def lookupScalaMap(): Unit = {
-    scalaMap(MapTags.unit)
-    scalaMap(MapTags.boolean)
-    scalaMap(MapTags.short)
-    scalaMap(MapTags.int)
-    scalaMap(MapTags.long)
-    scalaMap(MapTags.float)
-    scalaMap(MapTags.double)
+    scalaMap(Tags.unit)
+    scalaMap(Tags.boolean)
+    scalaMap(Tags.short)
+    scalaMap(Tags.int)
+    scalaMap(Tags.long)
+    scalaMap(Tags.float)
+    scalaMap(Tags.double)
   }
 
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def lookupShapelessHMap(): Unit = {
-    shapelessHMap.get(HMapTags.unit).get
-    shapelessHMap.get(HMapTags.boolean).get
-    shapelessHMap.get(HMapTags.short).get
-    shapelessHMap.get(HMapTags.int).get
-    shapelessHMap.get(HMapTags.long).get
-    shapelessHMap.get(HMapTags.float).get
-    shapelessHMap.get(HMapTags.double).get
+    shapelessHMap.get(SingletonTags.unit).get
+    shapelessHMap.get(SingletonTags.boolean).get
+    shapelessHMap.get(SingletonTags.short).get
+    shapelessHMap.get(SingletonTags.int).get
+    shapelessHMap.get(SingletonTags.long).get
+    shapelessHMap.get(SingletonTags.float).get
+    shapelessHMap.get(SingletonTags.double).get
+  }
+
+  // Not exactly the same because we have to provide values for keys
+  @Benchmark
+  def lookupShapelessRecord(): Unit = {
+    shapelessRecord(Tags.unit)
+    shapelessRecord(Tags.boolean)
+    shapelessRecord(Tags.short)
+    shapelessRecord(Tags.int)
+    shapelessRecord(Tags.long)
+    shapelessRecord(Tags.float)
+    shapelessRecord(Tags.double)
   }
 }

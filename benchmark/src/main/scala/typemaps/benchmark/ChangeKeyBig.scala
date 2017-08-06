@@ -26,34 +26,34 @@ class ChangeKeyBig {
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def updateScalaMap(): Unit = {
-    (scalaMapBig - MapTags.unit).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.boolean).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.short).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.int).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.long).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.float).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.double).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.bigDecimal).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.bigInt).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.char).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.symbol).updated(MapTags.optionUnit, 10)
-    (scalaMapBig - MapTags.string).updated(MapTags.optionUnit, 10)
+    (scalaMapBig - Tags.unit).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.boolean).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.short).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.int).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.long).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.float).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.double).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.bigDecimal).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.bigInt).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.char).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.symbol).updated(Tags.optionUnit, 10)
+    (scalaMapBig - Tags.string).updated(Tags.optionUnit, 10)
   }
 
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def updateShapelessHMap(): Unit = {
-    shapelessHMapBig - HMapTags.unit + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.boolean + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.short + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.int + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.long + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.float + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.double + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.bigDecimal + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.bigInt + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.char + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.symbol + (HMapTags.optionUnit -> 10)
-    shapelessHMapBig - HMapTags.string + (HMapTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.unit + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.boolean + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.short + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.int + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.long + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.float + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.double + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.bigDecimal + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.bigInt + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.char + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.symbol + (SingletonTags.optionUnit -> 10)
+    shapelessHMapBig - SingletonTags.string + (SingletonTags.optionUnit -> 10)
   }
 }

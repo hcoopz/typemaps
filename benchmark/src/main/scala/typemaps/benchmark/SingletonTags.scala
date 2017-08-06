@@ -2,7 +2,7 @@ package typemaps.benchmark
 
 import shapeless.syntax.singleton._
 
-object HMapTags {
+object SingletonTags {
   val unit = 'unit.narrow
   val boolean = 'boolean.narrow
   val short = 'short.narrow

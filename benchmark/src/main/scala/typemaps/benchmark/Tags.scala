@@ -1,6 +1,6 @@
 package typemaps.benchmark
 
-object MapTags {
+object Tags {
   val unit = 'unit
   val boolean = 'boolean
   val short = 'short

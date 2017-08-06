@@ -21,24 +21,24 @@ class ChangeKey {
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def updateScalaMap(): Unit = {
-    (scalaMap - MapTags.unit).updated(MapTags.optionUnit, 10)
-    (scalaMap - MapTags.boolean).updated(MapTags.optionUnit, 10)
-    (scalaMap - MapTags.short).updated(MapTags.optionUnit, 10)
-    (scalaMap - MapTags.int).updated(MapTags.optionUnit, 10)
-    (scalaMap - MapTags.long).updated(MapTags.optionUnit, 10)
-    (scalaMap - MapTags.float).updated(MapTags.optionUnit, 10)
-    (scalaMap - MapTags.double).updated(MapTags.optionUnit, 10)
+    (scalaMap - Tags.unit).updated(Tags.optionUnit, 10)
+    (scalaMap - Tags.boolean).updated(Tags.optionUnit, 10)
+    (scalaMap - Tags.short).updated(Tags.optionUnit, 10)
+    (scalaMap - Tags.int).updated(Tags.optionUnit, 10)
+    (scalaMap - Tags.long).updated(Tags.optionUnit, 10)
+    (scalaMap - Tags.float).updated(Tags.optionUnit, 10)
+    (scalaMap - Tags.double).updated(Tags.optionUnit, 10)
   }
 
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def updateShapelessHMap(): Unit = {
-    shapelessHMap - HMapTags.unit + (HMapTags.optionUnit -> 10)
-    shapelessHMap - HMapTags.boolean + (HMapTags.optionUnit -> 10)
-    shapelessHMap - HMapTags.short + (HMapTags.optionUnit -> 10)
-    shapelessHMap - HMapTags.int + (HMapTags.optionUnit -> 10)
-    shapelessHMap - HMapTags.long + (HMapTags.optionUnit -> 10)
-    shapelessHMap - HMapTags.float + (HMapTags.optionUnit -> 10)
-    shapelessHMap - HMapTags.double + (HMapTags.optionUnit -> 10)
+    shapelessHMap - SingletonTags.unit + (SingletonTags.optionUnit -> 10)
+    shapelessHMap - SingletonTags.boolean + (SingletonTags.optionUnit -> 10)
+    shapelessHMap - SingletonTags.short + (SingletonTags.optionUnit -> 10)
+    shapelessHMap - SingletonTags.int + (SingletonTags.optionUnit -> 10)
+    shapelessHMap - SingletonTags.long + (SingletonTags.optionUnit -> 10)
+    shapelessHMap - SingletonTags.float + (SingletonTags.optionUnit -> 10)
+    shapelessHMap - SingletonTags.double + (SingletonTags.optionUnit -> 10)
   }
 }

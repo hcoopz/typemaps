@@ -4,6 +4,7 @@ import org.openjdk.jmh.annotations.Benchmark
 import typemaps._
 import Syntax._
 import shapeless._
+import shapeless.syntax.singleton._
 
 object Maps {
   val typeMap = TypeMap.empty
@@ -30,52 +31,77 @@ object Maps {
     .insert[String](12)
 
   val scalaMap = Map(
-    MapTags.unit -> 1,
-    MapTags.boolean -> 2,
-    MapTags.short -> 3,
-    MapTags.int -> 4,
-    MapTags.long -> 5,
-    MapTags.float -> 6,
-    MapTags.double -> 7
+    Tags.unit -> 1,
+    Tags.boolean -> 2,
+    Tags.short -> 3,
+    Tags.int -> 4,
+    Tags.long -> 5,
+    Tags.float -> 6,
+    Tags.double -> 7
   )
 
   val scalaMapBig = Map(
-    MapTags.unit -> 1,
-    MapTags.boolean -> 2,
-    MapTags.short -> 3,
-    MapTags.int -> 4,
-    MapTags.long -> 5,
-    MapTags.float -> 6,
-    MapTags.double -> 7,
-    MapTags.bigDecimal -> 8,
-    MapTags.bigInt -> 9,
-    MapTags.char -> 10,
-    MapTags.symbol -> 11,
-    MapTags.string -> 12
+    Tags.unit -> 1,
+    Tags.boolean -> 2,
+    Tags.short -> 3,
+    Tags.int -> 4,
+    Tags.long -> 5,
+    Tags.float -> 6,
+    Tags.double -> 7,
+    Tags.bigDecimal -> 8,
+    Tags.bigInt -> 9,
+    Tags.char -> 10,
+    Tags.symbol -> 11,
+    Tags.string -> 12
   )
 
   val shapelessHMap = new HMapBuilder[HMapRel].apply(
-    HMapTags.unit -> 1,
-    HMapTags.boolean -> 2,
-    HMapTags.short -> 3,
-    HMapTags.int -> 4,
-    HMapTags.long -> 5,
-    HMapTags.float -> 6,
-    HMapTags.double -> 7
+    SingletonTags.unit -> 1,
+    SingletonTags.boolean -> 2,
+    SingletonTags.short -> 3,
+    SingletonTags.int -> 4,
+    SingletonTags.long -> 5,
+    SingletonTags.float -> 6,
+    SingletonTags.double -> 7
   )
 
   val shapelessHMapBig = new HMapBuilder[HMapRel].apply(
-    HMapTags.unit -> 1,
-    HMapTags.boolean -> 2,
-    HMapTags.short -> 3,
-    HMapTags.int -> 4,
-    HMapTags.long -> 5,
-    HMapTags.float -> 6,
-    HMapTags.double -> 7,
-    HMapTags.bigDecimal -> 8,
-    HMapTags.bigInt -> 9,
-    HMapTags.char -> 10,
-    HMapTags.symbol -> 11,
-    HMapTags.string -> 12
+    SingletonTags.unit -> 1,
+    SingletonTags.boolean -> 2,
+    SingletonTags.short -> 3,
+    SingletonTags.int -> 4,
+    SingletonTags.long -> 5,
+    SingletonTags.float -> 6,
+    SingletonTags.double -> 7,
+    SingletonTags.bigDecimal -> 8,
+    SingletonTags.bigInt -> 9,
+    SingletonTags.char -> 10,
+    SingletonTags.symbol -> 11,
+    SingletonTags.string -> 12
   )
+
+  val shapelessRecord =
+    (Tags.unit ->> 1) ::
+      (Tags.boolean ->> 2) ::
+      (Tags.short ->> 3) ::
+      (Tags.int ->> 4) ::
+      (Tags.long ->> 5) ::
+      (Tags.float ->> 6) ::
+      (Tags.double ->> 7) ::
+      HNil
+
+  val shapelessRecordBig =
+    (Tags.unit ->> 1) ::
+      (Tags.boolean ->> 2) ::
+      (Tags.short ->> 3) ::
+      (Tags.int ->> 4) ::
+      (Tags.long ->> 5) ::
+      (Tags.float ->> 6) ::
+      (Tags.double ->> 7) ::
+      (Tags.bigDecimal ->> 8) ::
+      (Tags.bigInt ->> 9) ::
+      (Tags.char ->> 10) ::
+      (Tags.symbol ->> 11) ::
+      (Tags.string ->> 12) ::
+      HNil
 }

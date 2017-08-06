@@ -3,6 +3,8 @@ package typemaps.benchmark
 import org.openjdk.jmh.annotations.Benchmark
 import typemaps._
 import Syntax._
+import shapeless.record._
+import shapeless.syntax.singleton._
 
 class ReplaceBig {
   import Maps._
@@ -27,34 +29,51 @@ class ReplaceBig {
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def replaceScalaMap(): Unit = {
-    scalaMapBig.updated(MapTags.unit, 10)
-    scalaMapBig.updated(MapTags.boolean, 10)
-    scalaMapBig.updated(MapTags.short, 10)
-    scalaMapBig.updated(MapTags.int, 10)
-    scalaMapBig.updated(MapTags.long, 10)
-    scalaMapBig.updated(MapTags.float, 10)
-    scalaMapBig.updated(MapTags.double, 10)
-    scalaMapBig.updated(MapTags.bigDecimal, 10)
-    scalaMapBig.updated(MapTags.bigInt, 10)
-    scalaMapBig.updated(MapTags.char, 10)
-    scalaMapBig.updated(MapTags.symbol, 10)
-    scalaMapBig.updated(MapTags.string, 10)
+    scalaMapBig.updated(Tags.unit, 10)
+    scalaMapBig.updated(Tags.boolean, 10)
+    scalaMapBig.updated(Tags.short, 10)
+    scalaMapBig.updated(Tags.int, 10)
+    scalaMapBig.updated(Tags.long, 10)
+    scalaMapBig.updated(Tags.float, 10)
+    scalaMapBig.updated(Tags.double, 10)
+    scalaMapBig.updated(Tags.bigDecimal, 10)
+    scalaMapBig.updated(Tags.bigInt, 10)
+    scalaMapBig.updated(Tags.char, 10)
+    scalaMapBig.updated(Tags.symbol, 10)
+    scalaMapBig.updated(Tags.string, 10)
   }
 
   // Not exactly the same because we have to provide values for keys
   @Benchmark
   def replaceShapelessHMap(): Unit = {
-    shapelessHMapBig + (HMapTags.unit -> 10)
-    shapelessHMapBig + (HMapTags.boolean -> 10)
-    shapelessHMapBig + (HMapTags.short -> 10)
-    shapelessHMapBig + (HMapTags.int -> 10)
-    shapelessHMapBig + (HMapTags.long -> 10)
-    shapelessHMapBig + (HMapTags.float -> 10)
-    shapelessHMapBig + (HMapTags.double -> 10)
-    shapelessHMapBig + (HMapTags.bigDecimal -> 10)
-    shapelessHMapBig + (HMapTags.bigInt -> 10)
-    shapelessHMapBig + (HMapTags.char -> 10)
-    shapelessHMapBig + (HMapTags.symbol -> 10)
-    shapelessHMapBig + (HMapTags.string -> 10)
+    shapelessHMapBig + (SingletonTags.unit -> 10)
+    shapelessHMapBig + (SingletonTags.boolean -> 10)
+    shapelessHMapBig + (SingletonTags.short -> 10)
+    shapelessHMapBig + (SingletonTags.int -> 10)
+    shapelessHMapBig + (SingletonTags.long -> 10)
+    shapelessHMapBig + (SingletonTags.float -> 10)
+    shapelessHMapBig + (SingletonTags.double -> 10)
+    shapelessHMapBig + (SingletonTags.bigDecimal -> 10)
+    shapelessHMapBig + (SingletonTags.bigInt -> 10)
+    shapelessHMapBig + (SingletonTags.char -> 10)
+    shapelessHMapBig + (SingletonTags.symbol -> 10)
+    shapelessHMapBig + (SingletonTags.string -> 10)
+  }
+
+  // Not exactly the same because we have to provide values for keys
+  @Benchmark
+  def replaceShapelessRecord(): Unit = {
+    shapelessRecordBig + (Tags.unit ->> 10)
+    shapelessRecordBig + (Tags.boolean ->> 10)
+    shapelessRecordBig + (Tags.short ->> 10)
+    shapelessRecordBig + (Tags.int ->> 10)
+    shapelessRecordBig + (Tags.long ->> 10)
+    shapelessRecordBig + (Tags.float ->> 10)
+    shapelessRecordBig + (Tags.double ->> 10)
+    shapelessRecordBig + (Tags.bigDecimal ->> 10)
+    shapelessRecordBig + (Tags.bigInt ->> 10)
+    shapelessRecordBig + (Tags.char ->> 10)
+    shapelessRecordBig + (Tags.symbol ->> 10)
+    shapelessRecordBig + (Tags.string ->> 10)
   }
 }
