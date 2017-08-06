@@ -20,8 +20,7 @@ object Syntax {
     @inline def upsert[K](implicit lookup: Lookup[M, K]): Upsert.UpsertFn[M, K, K, lookup.Out] = new Upsert.UpsertFn(m)
     @inline def upsertWithKey[KA, KB](implicit lookup: Lookup[M, KA]): Upsert.UpsertFn[M, KA, KB, lookup.Out] = new Upsert.UpsertFn(m)
 
-    @inline def upsertSet[A](update: A => A, insert: => A)(implicit upsert: Upsert[M, A, A, A, A]): upsert.Out = upsert(m, update, insert)
-    @inline def upsertSetWithKey[A]: Upsert.UpsertSetFn[M, A] = new Upsert.UpsertSetFn(m)
+    @inline def upsertSet[A]: Upsert.UpsertSetFn[M, A] = new Upsert.UpsertSetFn(m)
 
     @inline def remove[K](implicit remove: Remove[M, K]): remove.Out = remove(m)
   }
