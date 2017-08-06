@@ -10,13 +10,13 @@ class Replace {
 
   @Benchmark
   def replaceTypeMap(): Unit = {
-    typeMap.update[Unit].apply(_ => 10)
-    typeMap.update[Boolean].apply(_ => 10)
-    typeMap.update[Short].apply(_ => 10)
-    typeMap.update[Int].apply(_ => 10)
-    typeMap.update[Long].apply(_ => 10)
-    typeMap.update[Float].apply(_ => 10)
-    typeMap.update[Double].apply(_ => 10)
+    typeMap.update[Unit].const(10)
+    typeMap.update[Boolean].const(10)
+    typeMap.update[Short].const(10)
+    typeMap.update[Int].const(10)
+    typeMap.update[Long].const(10)
+    typeMap.update[Float].const(10)
+    typeMap.update[Double].const(10)
   }
 
   // Not exactly the same because we have to provide values for keys

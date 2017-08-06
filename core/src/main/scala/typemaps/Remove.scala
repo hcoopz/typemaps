@@ -47,6 +47,6 @@ object Remove {
                                                                                                                    ): Remove.Aux[Bin[KA, A, L, Bin[RK, RA, RL, RR]], K, Bin[RK, RA, OR, OL]] =
     new Remove[Bin[KA, A, L, Bin[RK, RA, RL, RR]], K] {
       override type Out = Bin[RK, RA, OR, OL]
-      override def apply(m: Bin[KA, A, L, Bin[RK, RA, RL, RR]]): Bin[RK, RA, OR, OL] = Bin(m.r.a, remove(m.r), replace(m.l, _ => m.a))
+      override def apply(m: Bin[KA, A, L, Bin[RK, RA, RL, RR]]): Bin[RK, RA, OR, OL] = Bin(m.r.a, remove(m.r), replace.const(m.l, m.a))
     }
 }
