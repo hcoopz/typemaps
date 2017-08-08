@@ -26,9 +26,4 @@ object Syntax {
 
     @inline def remove[K](implicit remove: Remove[M, K]): remove.Out = remove(m)
   }
-
-  implicit final class IdSyntax[A](val a: A) extends AnyVal {
-    @inline def singletonTypeMap[K]: Bin[K, A, Tip, Tip] = Bin(a, Tip, Tip)
-    @inline def singletonTypeSet: Bin[A, A, Tip, Tip] = Bin(a, Tip, Tip)
-  }
 }

@@ -7,7 +7,7 @@ import typemaps.Syntax._
 
 class RemoveSpec extends FlatSpec with Matchers with TypeMapMatchers with Types {
   "Removing an element from a TypeMap" should "return a balanced, constraint-satisfying TypeMap containing the remaining types and values but not the removed keys" in {
-    val m0 = 3.singletonTypeSet.insertSet('a').insertSet("foo").insertSet(false).insert[Unit]('bar)
+    val m0 = TypeMap.singletonSet(3).insertSet('a').insertSet("foo").insertSet(false).insert[Unit]('bar)
 
     val m1 = m0.remove[Int]
     m1 shouldBe aBalancedTypeMap

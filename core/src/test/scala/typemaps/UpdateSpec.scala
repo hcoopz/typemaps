@@ -7,7 +7,7 @@ import typemaps.Syntax._
 
 class UpdateSpec extends FlatSpec with Matchers with TypeMapMatchers with Types {
   "Updating a value in a TypeMap to the same type" should "update the value at the key" in {
-    val m0 = 3.singletonTypeSet.insertSet('a').insertSet("foo").insertSet(false).insert[Unit]('bar)
+    val m0 = TypeMap.singletonSet(3).insertSet('a').insertSet("foo").insertSet(false).insert[Unit]('bar)
 
     val m1 = m0.update[Int].apply(_ + 1)
     m1 shouldBe aBalancedTypeMap
@@ -36,7 +36,7 @@ class UpdateSpec extends FlatSpec with Matchers with TypeMapMatchers with Types 
   }
 
   "Updating a value in a TypeMap to a different type" should "update the value at the key" in {
-    val m0 = 3.singletonTypeSet.insertSet('a').insertSet("foo").insertSet(false).insert[Unit]('bar)
+    val m0 = TypeMap.singletonSet(3).insertSet('a').insertSet("foo").insertSet(false).insert[Unit]('bar)
 
     val m1 = m0.update[Int].apply(_ => "foo")
     m1 shouldBe aBalancedTypeMap
@@ -70,7 +70,7 @@ class UpdateSpec extends FlatSpec with Matchers with TypeMapMatchers with Types 
   }
 
   "Updating a key and value in a TypeMap" should "update the key and value" in {
-    val m0 = 3.singletonTypeSet.insertSet('a').insertSet("foo").insertSet(false).insert[Unit]('bar)
+    val m0 = TypeMap.singletonSet(3).insertSet('a').insertSet("foo").insertSet(false).insert[Unit]('bar)
 
     val m1 = m0.updateWithKey[Int, Float].apply(_ => "foo")
     m1 shouldBe aBalancedTypeMap
@@ -99,7 +99,7 @@ class UpdateSpec extends FlatSpec with Matchers with TypeMapMatchers with Types 
   }
 
   "Updating a key in a TypeMap" should "refuse to update a key to another key in the map" in {
-    val m0 = 3.singletonTypeSet.insertSet('a').insertSet("foo").insertSet(false).insert[Unit]('bar)
+    val m0 = TypeMap.singletonSet(3).insertSet('a').insertSet("foo").insertSet(false).insert[Unit]('bar)
 
     CannotUpdateKey[Int, Char](m0)
     CannotUpdateKey[Int, String](m0)

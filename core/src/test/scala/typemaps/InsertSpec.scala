@@ -7,7 +7,7 @@ import typemaps.Syntax._
 
 class InsertSpec extends FlatSpec with Matchers with TypeMapMatchers with Types {
   "Inserting elements into a TypeMap" should "construct a balanced, constraint-satisfying TypeMap containing the types and values" in {
-    val m1 = 3.singletonTypeSet
+    val m1 = TypeMap.singletonSet(3)
     m1 shouldBe aBalancedTypeMap
     m1 should satisfyTheTypeMapConstraint
 
@@ -32,7 +32,7 @@ class InsertSpec extends FlatSpec with Matchers with TypeMapMatchers with Types 
   }
 
   it should "yield a TypeMap containing the inserted values" in {
-    val m1 = 3.singletonTypeSet
+    val m1 = TypeMap.singletonSet(3)
     m1.lookup[Int] shouldEqual 3
 
     val m2 = m1.insertSet('a')
@@ -65,7 +65,7 @@ class InsertSpec extends FlatSpec with Matchers with TypeMapMatchers with Types 
   }
 
   "Attempting to insert a value into a TypeMap with a key that already exists" should "fail to compile" in {
-    val m1 = 3.singletonTypeSet
+    val m1 = TypeMap.singletonSet(3)
     CannotInsertKey[Int](m1)
 
     val m2 = m1.insertSet('a')
