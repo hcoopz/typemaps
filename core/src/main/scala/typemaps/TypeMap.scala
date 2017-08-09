@@ -9,7 +9,11 @@ object TypeMap {
 
   def empty: Tip = Tip
 
+  final class SingletonFn[K] {
+    def apply[A](a: A): Bin[K, A, Tip, Tip] = Bin(a, Tip, Tip)
+  }
+
   @inline def singletonSet[A](a: A): Bin[A, A, Tip, Tip] = Bin(a, Tip, Tip)
-  @inline def singleton[K, A](a: A): Bin[K, A, Tip, Tip] = Bin(a, Tip, Tip)
+  @inline def singleton[K]: SingletonFn[K] = new SingletonFn
 }
 
