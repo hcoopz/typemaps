@@ -2,7 +2,6 @@ package typemaps.benchmark
 
 import org.openjdk.jmh.annotations.Benchmark
 import typemaps._
-import Syntax._
 import shapeless.record._
 
 class Lookup {

@@ -3,7 +3,6 @@ package typemaps
 import org.scalatest.{FlatSpec, Matchers}
 import shapeless.HList._
 import shapeless._
-import typemaps.Syntax._
 
 class UpdateSpec extends FlatSpec with Matchers with TypeMapMatchers with Types {
   "Updating a value in a TypeMap to the same type" should "update the value at the key" in {

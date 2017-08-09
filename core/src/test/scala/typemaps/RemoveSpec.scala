@@ -3,7 +3,6 @@ package typemaps
 import org.scalatest.{FlatSpec, Matchers}
 import shapeless.HList._
 import shapeless._
-import typemaps.Syntax._
 
 class RemoveSpec extends FlatSpec with Matchers with TypeMapMatchers with Types {
   "Removing an element from a TypeMap" should "return a balanced, constraint-satisfying TypeMap containing the remaining types and values but not the removed keys" in {

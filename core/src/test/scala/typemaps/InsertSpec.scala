@@ -3,7 +3,6 @@ package typemaps
 import org.scalatest.{FlatSpec, Matchers}
 import shapeless.HList._
 import shapeless._
-import typemaps.Syntax._
 
 class InsertSpec extends FlatSpec with Matchers with TypeMapMatchers with Types {
   "Inserting elements into a TypeMap" should "construct a balanced, constraint-satisfying TypeMap containing the types and values" in {
